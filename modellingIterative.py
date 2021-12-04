@@ -95,7 +95,7 @@ A = Area = rudderLength*rudderHeight # Area of rudder
 x=40  
 
 t=0
-k=3
+k=1
 #ts = np.linspace(1,10,1000)
 ts = []
 xs = []
@@ -108,10 +108,10 @@ for i in range(0,100):
     bs.append(beta)
     if x < 0:
         beta-=0.1
-        x += ((3*k*rho*A*(v**2)*(math.sin(x)**2))*(s*math.cos(beta)+l/v)*t**2) / (2*m*(l**2+w**2))
+        x += ((3*k*rho*A*(v**2)*(math.sin(x)**2))*(s*math.cos(beta)+l/2)*(t**2)) / (2*m*(l**(2)+w**(2)))
     elif x > 0:
         beta+=0.1
-        x -= ((3*k*rho*A*(v**2)*(math.sin(x)**2))*(s*math.cos(beta)+l/v)*t**2) / (2*m*(l**2+w**2))
+        x -= ((3*k*rho*A*(v**2)*(math.sin(x)**2))*(s*math.cos(beta)+l/2)*(t**2)) / (2*m*(l**(2)+w**(2)))
     
 
 #print(xs,ts)
