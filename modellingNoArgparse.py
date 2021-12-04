@@ -90,6 +90,6 @@ plt.plot(ts,ys,'r*')
 plt.xlabel('Time/s')
 plt.ylabel('Heading/degrees')
 plt.title('Heading change with time')
-plt.show
+plt.show()
 
 
