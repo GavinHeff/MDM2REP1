@@ -92,7 +92,7 @@ A = Area = rudderLength*rudderHeight # Area of rudder
 # plt.title('Heading change with time')
 # plt.show()
 
-x=40  
+x=90  
 
 t=0
 k=1
@@ -101,29 +101,41 @@ ts = []
 xs = []
 bs = []
 #xs = odeint(Derivs, x0, t)
-for i in range(0,100):
+for t in range(0,30):
     ts.append(t)
     xs.append(x)
-    t+=0.1
+    #t+=0.1
     bs.append(beta)
-    if x < 0:
-        beta-=0.1
-        x += ((3*k*rho*A*(v**2)*(math.sin(x)**2))*(s*math.cos(beta)+l/2)*(t**2)) / (2*m*(l**(2)+w**(2)))
-    elif x > 0:
-        beta+=0.1
-        x -= ((3*k*rho*A*(v**2)*(math.sin(x)**2))*(s*math.cos(beta)+l/2)*(t**2)) / (2*m*(l**(2)+w**(2)))
-    
-
+    if not t%2:
+        if x < -50:
+            beta-=10
+            x += ((3*k*rho*A*(v**2)*(math.sin(x)**2))*(s*math.cos(beta)+l/2)*(t**2)) / (2*m*(l**(2)+w**(2)))
+        elif x > 50:
+            beta+=1
+            x -= ((3*k*rho*A*(v**2)*(math.sin(x)**2))*(s*math.cos(beta)+l/2)*(t**2)) / (2*m*(l**(2)+w**(2)))
+        elif x < -20:
+            beta-=0.5
+            x -= ((3*k*rho*A*(v**2)*(math.sin(x)**2))*(s*math.cos(beta)+l/2)*(t**2)) / (2*m*(l**(2)+w**(2)))
+        elif x > 20:
+            beta+=0.5
+            x -= ((3*k*rho*A*(v**2)*(math.sin(x)**2))*(s*math.cos(beta)+l/2)*(t**2)) / (2*m*(l**(2)+w**(2)))
+        elif x < -10:
+            beta-=0.1
+            x -= ((3*k*rho*A*(v**2)*(math.sin(x)**2))*(s*math.cos(beta)+l/2)*(t**2)) / (2*m*(l**(2)+w**(2)))
+        elif x > 10:
+            beta+=0.1
+            x -= ((3*k*rho*A*(v**2)*(math.sin(x)**2))*(s*math.cos(beta)+l/2)*(t**2)) / (2*m*(l**(2)+w**(2)))
+     
 #print(xs,ts)
 
 
 
 #ys = xs[:,0]
 plt.plot(ts,xs,'-')
-plt.plot(ts,bs,'r*')
+plt.plot(ts,bs,'r-')
 plt.xlabel('Time/s')
-plt.ylabel('Heading/degrees')
-plt.title('Heading change with time')
+plt.ylabel('Heading, rudder angle/degrees')
+plt.title('Heading and rudder angle change with time')
 plt.show()
 
 
