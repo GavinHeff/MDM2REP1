@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
 # -- coding: utf-8 --
-"""
-Created on Mon Dec  6 18:05:28 2021
-
-@author: freddiemarsh
-"""
-
 from scipy.integrate import odeint
 import numpy as np
 import matplotlib.pyplot as plt
@@ -16,21 +10,21 @@ while True:
     choice = input("Would you like to (a) enter values for the parameters of the system or (b) run with default values? \n")
     if choice == 'a':
         while True:
-            w = width = float(input("What is the width of the boat in metres? "))
+            w = width = float(input("What is the width of the boat in metres? " ))
             if w < 0:
                  print("The width can not be negative.")
-                 w = width = float(input("What is the width of the boat in metres? "))
+                 w = width = float(input("What is the width of the boat in metres? " ))
             else:
                 break
         while True:
-            l = length = float(input("What is the length of the boat in metres? "))
+            l = length = float(input("What is the length of the boat in metres? " ))
             if w < 0:
                  print("The length can not be negative.")
-                 l = length = float(input("What is the width of the boat in metres? "))
+                 l = length = float(input("What is the width of the boat in metres? " ))
             else:
                 break
         while True:
-            v = boatspeed = float(input("What is the speed of the boat in metres per second?"))
+            v = boatspeed = float(input("What is the speed of the boat in metres per second? "))
             if v < 0:
                 print("The wind speed can not be negative.")
                 v = boatspeed = float(input("What is the speed of the boat in metres per second? "))
@@ -69,7 +63,7 @@ while True:
     else:
         print("Entry must be 'a' or 'b'")
         
-filename = str(input("Enter a name for the plot file to be saved under"))
+filename = str(input("Enter a name for the plot file to be saved under: "))
 
 #defining other constants
 rho = density = 1000 # density of water
