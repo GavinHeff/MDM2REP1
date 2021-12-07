@@ -1,0 +1,12 @@
+l = 9.144 (30 feet)
+width = 3
+v = 10
+rudderLength = 0.5
+rudderHeight = 0.5
+boatMass = 3000
+k1 = 1/18
+k2 = 0.1
+c1 = -1
+c2 = -2
+ts = linspace(0,50,100)
+x0 = 0.1rads^-1,80deg
