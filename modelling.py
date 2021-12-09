@@ -59,12 +59,12 @@ while True:
                 break
         break
     elif choice == 'b':
-        l = length = 9.144 # 30 feet in metres
-        width = 3
+        l = length = 10.05 # 30 feet in metres
+        width = 3.81
         v = 10
         rudderLength = 0.5
         rudderHeight = 0.5
-        boatMass = 3000
+        boatMass = 2437,5
         break
     else:
         print("Entry must be 'a' or 'b'")
