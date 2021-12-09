@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # -- coding: utf-8 --
-"""
-Created on Mon Dec  6 18:05:28 2021
-
-@author: freddiemarsh
-"""
 
 from scipy.integrate import odeint
 import numpy as np
@@ -79,7 +74,6 @@ k2 = 0.1 # higher values result in longer time to stabilise - maximum value depe
 C1 = -1
 C2 = -1
 
-
 #calculating values based on given constants
 A = Area = rudderLength*rudderHeight # Area of rudder
 D = k2*l**3*h*rho/64 #drag coefficient
@@ -87,14 +81,11 @@ RudderForceConstant = 3*k1*rho*A*(v**2)*l/2
 I = (1/3)*(((length)**2)+((width)**2))*boatMass 
 print([D,RudderForceConstant])
 
-
 def Derivs(x,t):
     #defining the system of ODEs to be solved
     angVel = x[0] #angular velocity of the boat (radians per second)
     alpha = x[1] #angular position of the boat (radians)
     
-    
-
     beta = (C1*alpha + C2*angVel) #angular position of the rudder (radians)
     if beta > math.radians(35):
         beta = math.radians(35)
@@ -104,7 +95,6 @@ def Derivs(x,t):
         beta = beta
     dangVeldt=(RudderForceConstant*(math.sin(beta))-D*angVel**2)/I  #2nd order DE for angular acceleration in terms of angular velocity and angular position
     dalphadt = angVel #equating first derivative of angular position to angular velocity
-    
     
     return [dangVeldt,dalphadt]
     
@@ -126,8 +116,6 @@ ANALYSIS TO FIND OPTIMAL C1 AND C2
     #as long as real part of solution <0 it will stabilise
     #look for critical damping which is a repeated root
     """
-
-    
 
 ts = np.linspace(0,100,100)#timespan for model, 15s with 100 steps
 solution = odeint(Derivs, x0, ts)#use odeint model to numerically solve ODE
